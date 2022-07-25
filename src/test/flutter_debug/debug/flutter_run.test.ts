@@ -274,7 +274,7 @@ describe(`flutter run debugger (launch on ${flutterTestDeviceId})`, () => {
 		);
 	});
 
-	it("re-sends theme on hot restart if set by us", async () => {
+	it.only("re-sends theme on hot restart if set by us", async () => {
 		const config = await startDebugger(dc, flutterHelloWorldMainFile);
 		await waitAllThrowIfTerminates(dc,
 			waitForResult(() => extApi.debugCommands.vmServices.serviceExtensionIsLoaded(VmServiceExtension.BrightnessOverride), "Waiting for BrightnessOverride extension", 60000),
