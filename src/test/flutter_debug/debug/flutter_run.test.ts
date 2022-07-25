@@ -500,7 +500,7 @@ describe(`flutter run debugger (launch on ${flutterTestDeviceId})`, () => {
 		assert.ok((await extApi.debugCommands.devTools.devtoolsUrl).startsWith("http://"));
 	});
 
-	it.only("can launch DevTools externally", async () => {
+	it("can launch DevTools externally", async () => {
 		await setConfigForTest("dart", "devToolsLocation", "external");
 
 		const openBrowserCommand = sb.stub(extApi.envUtils, "openInBrowser").resolves();
@@ -527,7 +527,7 @@ describe(`flutter run debugger (launch on ${flutterTestDeviceId})`, () => {
 		);
 	});
 
-	it.only("can run using a custom tool", async () => {
+	it("can run using a custom tool", async () => {
 		const root = fsPath(flutterHelloWorldFolder);
 		const hasRunFile = prepareHasRunFile(root, "flutter");
 
@@ -549,7 +549,7 @@ describe(`flutter run debugger (launch on ${flutterTestDeviceId})`, () => {
 		ensureHasRunWithArgsStarting(root, hasRunFile, "run --machine --start-paused");
 	});
 
-	it.only("can replace all args using custom tool", async () => {
+	it("can replace all args using custom tool", async () => {
 		const root = fsPath(flutterHelloWorldFolder);
 		const hasRunFile = prepareHasRunFile(root, "flutter");
 
