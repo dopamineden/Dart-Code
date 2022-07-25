@@ -20,7 +20,6 @@ import { FlutterDeviceManager } from "../../shared/vscode/device_manager";
 import { getAllProjectFolders, isRunningLocally, warnIfPathCaseMismatch } from "../../shared/vscode/utils";
 import { Analytics } from "../analytics";
 import { DebugCommands, debugSessions, LastDebugSession, LastTestDebugSession } from "../commands/debug";
-import { isLogging } from "../commands/logging";
 import { config, ResourceConfig } from "../config";
 import { getActiveRealFileEditor } from "../editors";
 import { locateBestProjectRoot } from "../project";
@@ -687,7 +686,7 @@ export class DebugConfigProvider implements DebugConfigurationProvider {
 			}
 		}
 
-		if (isLogging && !args.includes("--verbose"))
+		if (!args.includes("--verbose"))
 			this.addArgsIfNotExist(args, "-v");
 
 		return args;
